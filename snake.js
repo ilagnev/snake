@@ -1,9 +1,12 @@
 function Snake() {
-	this.x = 0;
-	this.y = 0;
-	this.xSpeed = 1;
-	this.ySpeed = 0;
-	this.tail = [];
+	this.reborn = function() {
+		this.tail = [];
+		this.x = floor(random(floor(window.innerWidth / z))) * z;
+		this.y = floor(random(floor(window.innerHeight / z))) * z;
+		this.xSpeed = 1;
+		this.ySpeed = 0;
+	}
+	this.reborn();
 
 	this.update = function() {
 		// save previous position to the tail if tail exists
@@ -44,6 +47,15 @@ function Snake() {
 
 	this.eat = function(food) {
 		return dist(this.x, this.y, food.x, food.y) < 1;
+	}
+
+	this.selfEated = function() {
+		for (var i = 0; i < this.tail.length; i++) {
+			if (dist(this.x, this.y, this.tail[i].x, this.tail[i].y) < 1) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	this.increase = function() {

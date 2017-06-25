@@ -6,6 +6,7 @@ function setup() {
 	createCanvas(window.innerWidth || 600, window.innerHeight || 400);
 	frameRate(10);
 	snake = new Snake();
+	//snake.reborn();
 	food = new Food();
 }
 
@@ -13,6 +14,11 @@ function draw() {
 	background(51);
 
 	snake.update();
+
+	if (snake.selfEated()) {
+		console.log("game over");
+		snake.reborn();
+	}
 
 	if (snake.eat(food)) {
 		console.log("food eaten");
