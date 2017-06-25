@@ -41,6 +41,12 @@ function Snake() {
 	}
 
 	this.moveTo = function(xDirection, yDirection) {
+		// check to invert direction, make it not possible O:)
+		if (this.xSpeed + xDirection == 0 && this.ySpeed + yDirection == 0) {
+			console.log("invert direction move, skip");
+			return;
+		}
+
 		this.xSpeed = xDirection;
 		this.ySpeed = yDirection;
 	}

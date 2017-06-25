@@ -1,5 +1,5 @@
-function Food() {
-	// pick random location
+function Food(snakeTail) {
+
 	this.x = floor(random(floor(window.innerWidth / z))) * z;
 	this.y = floor(random(floor(window.innerHeight / z))) * z;
 

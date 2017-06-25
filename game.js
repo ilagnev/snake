@@ -1,4 +1,4 @@
-var z = 20;
+var z = 30;
 var snake;
 var food;
 
@@ -6,7 +6,6 @@ function setup() {
 	createCanvas(window.innerWidth || 600, window.innerHeight || 400);
 	frameRate(10);
 	snake = new Snake();
-	//snake.reborn();
 	food = new Food();
 }
 
