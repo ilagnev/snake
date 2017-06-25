@@ -12,6 +12,10 @@ function setup() {
 function draw() {
 	background(51);
 	snake.update();
+	if (snake.eat(food)) {
+		console.log("food eaten");
+		food = new Food();
+	}
 	snake.show();
 	food.show();
 }
@@ -19,16 +23,16 @@ function draw() {
 function keyPressed() {
 	switch (keyCode) {
 		case UP_ARROW:
-			snake.move(0, -1);
+			snake.moveTo(0, -1);
 			break;
 		case DOWN_ARROW:
-			snake.move(0, 1);
+			snake.moveTo(0, 1);
 			break;
 		case RIGHT_ARROW:
-			snake.move(1, 0);
+			snake.moveTo(1, 0);
 			break;
 		case LEFT_ARROW:
-			snake.move(-1, 0);
+			snake.moveTo(-1, 0);
 			break;
 	}
 }
