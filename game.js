@@ -37,6 +37,7 @@ function keyPressed() {
 	if (gameStopped) {
 		snake.reborn();
 		food = new Food();
+		gameStopped = false;
 		loop();
 	}
 
@@ -58,7 +59,6 @@ function keyPressed() {
 
 function gameOver() {
 	console.log("game over");
-
 	
 	textSize(32);
 	var msg = 'Game Over';
