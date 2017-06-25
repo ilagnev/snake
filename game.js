@@ -11,11 +11,15 @@ function setup() {
 
 function draw() {
 	background(51);
+
 	snake.update();
+
 	if (snake.eat(food)) {
 		console.log("food eaten");
+		snake.increase();
 		food = new Food();
 	}
+
 	snake.show();
 	food.show();
 }
